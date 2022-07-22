@@ -1,0 +1,73 @@
+<div class="contianer-fluid">
+  <h2 class="text-center mt-3 mb-1">Login</h2>
+  <mat-card class="w-50 mx-auto my-auto">
+    <form>
+      <!-- employee ID -->
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Employee ID</mat-label>
+        <input matInput placeholder="Please enter your employee ID" />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint>*enter employee id</mat-hint>
+      </mat-form-field>
+
+      <!-- Create Password -->
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+        <mat-hint>*enter password</mat-hint>
+      </mat-form-field>
+
+      <!-- create confirm password -->
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+        <mat-hint>*Confirm password</mat-hint>
+      </mat-form-field>
+
+      <!-- Enter Security Question -->
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Enter Security Question</mat-label>
+        <mat-select>
+          <mat-option></mat-option>
+          <mat-option
+            [value]="option.value"
+            *ngFor="let option of securityQuestion"
+            >{{ option.viewValue }}</mat-option
+          >
+        </mat-select>
+        <mat-hint>*Select Security Question</mat-hint>
+      </mat-form-field>
+
+      <!-- Enter security answer -->
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Enter Security Answer</mat-label>
+        <input matInput placeholder="Please enter your Security Answer" />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint>*enter Security Answer</mat-hint>
+      </mat-form-field>
+
+      <!-- Submit Button -->
+      <button mat-flat-button color="primary" class="mx-auto d-block">
+        Login
+      </button>
+    </form>
+  </mat-card>
+</div>
